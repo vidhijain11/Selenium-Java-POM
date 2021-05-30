@@ -1,5 +1,6 @@
 package com.qa.pages;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -17,7 +18,7 @@ public class AlertPage extends TestBase {
 	@FindBy (xpath="//button[@class='btn btn-primary']") 
 	WebElement btnOK;
 	
-	public AlertPage(){
+	public AlertPage(WebDriver driver){
 		PageFactory.initElements(driver, this);
 	}
 	
@@ -25,12 +26,11 @@ public class AlertPage extends TestBase {
 	 * click on OK button
 	 * @return object Homepage;
 	 */
-	public HomePage clickOK(){
+	public void clickOK(){
 		utility.waitUntilVisible(hdAlert, 5);
 		if(btnOK.isDisplayed()){
 			btnOK.click();
 		}
-		return new HomePage();
 	}
 	
 	/**

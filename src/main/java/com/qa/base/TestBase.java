@@ -45,11 +45,11 @@ public class TestBase {
 	    
 	}
 	
-	public static void launchBrowser(String browsername, String url){
+	public static WebDriver launchBrowser(String browsername, String url){
 		
 			switch (browsername){
 			case "chrome" :
-				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+ "\\Resources\\chromedriver88.exe");
+				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+ "\\Resources\\chromedriver90.exe");
 				ChromeOptions options = new ChromeOptions(); 
 				options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
 				
@@ -82,7 +82,7 @@ public class TestBase {
 			driver.get(url);
 			driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 			driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
-			
+			return driver;
 	}
 	
 	public static String getProperty(String attribute){
